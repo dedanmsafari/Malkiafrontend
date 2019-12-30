@@ -1,0 +1,48 @@
+$theme-colors: (
+  "primary": #238a0f,
+  "danger": #f30c0c,
+  "_links":hotpink
+);
+$border-radius: 1.5em;
+
+$link-color:                theme-colors("primary");
+$link-decoration:           none ;
+$link-hover-color:          darken(hotpink, 20%);
+$link-hover-decoration:     underline;
+
+
+
+$container-max-widths: (
+  sm: 140px,
+  md: 220px,
+  lg: 360px,
+  xl: 1140px
+) !default;
+
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+ 
+  
+  .nav-link {
+    padding-right: 3px;
+    padding-left: 2px;
+    width:15rem;
+    text-align: center;
+    background-color: #b9adad;
+  
+  }
+
+  .dropdown-menu {
+    position: static;
+    float: none;
+  }
+}
+
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
