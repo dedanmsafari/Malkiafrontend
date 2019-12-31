@@ -13,7 +13,6 @@ import Me from "./components/me";
 import RegisterForm from "./components/registerForm";
 import ProtectedRoute from "./components/common/protectedRoute";
 import  auth  from "./services/authService";
-import    rent from "./services/rentalService";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -21,8 +20,7 @@ class App extends Component {
   state = {};
   componentDidMount() {
    const user = auth.getCurrentUser();
-   const rental =rent.getRentals();
-   this.setState({ user, rental });
+   this.setState({ user});
   }
   render() {
   
@@ -40,7 +38,7 @@ class App extends Component {
             <ProtectedRoute path="/movies/:id" component = {MovieForm} />
             <Route path="/movies" render={props => <Movies {...props} user={this.state.user} />}  />
             <Route path="/customers" component={Customers} />
-            <Route path="/rentals" render={props => <Rentals getrent={this.state.rental}/>} />
+            <Route path="/rentals" component={Rentals} />
             <Route path="/me" render={props => <Me {...props} user={this.state.user} />} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/movies" />
