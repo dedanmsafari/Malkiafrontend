@@ -1,12 +1,24 @@
 import React, { Component } from "react";
+import { getRentals } from "../services/rentalService";
 class Rentals extends Component {
-  render() {
-    const getrent = this.props;
-    const { data: rentals } = this;
-    console.log(getrent);
+  state = { 
+    rentals:[]
 
-    return <h1> Chess Kenya </h1>;
+   }
+   
+   async componentDidMount() {
+    const {data:rentals} = await getRentals();
+    this.setState = {rentals:rentals};
+    console.log(rentals);
+    
+  }
+  
+  render() { 
+    return (
+
+      <p>hello</p>
+    );
   }
 }
-
+ 
 export default Rentals;
