@@ -2,7 +2,6 @@ import React, { Component } from "react";
 class Me extends Component {
   render() {
     const { user } = this.props;
-    console.log(user);
 
     return (<React.Fragment>
         <div>
