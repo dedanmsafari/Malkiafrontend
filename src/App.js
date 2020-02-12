@@ -25,7 +25,7 @@ class App extends Component {
   render() {
   
 
-    toast.info("API mounted successfully");
+    toast("API mounted successfully");
     return (
       <React.Fragment>
         <ToastContainer />
