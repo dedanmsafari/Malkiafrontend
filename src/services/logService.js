@@ -1,8 +1,9 @@
-// import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/browser';
 
 
 function init() {
-// Sentry.init({dsn: "https://7cfc55fb00514b4fa816be36f3f04679@sentry.io/1778006"});
+
+    Sentry.init({dsn: "https://1b37d9a991124d07b6cefd33239ee5a6@sentry.io/2668753"});
 
 }
 
