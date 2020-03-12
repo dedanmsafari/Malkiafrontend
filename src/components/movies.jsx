@@ -7,7 +7,6 @@ import { getMovies, deleteMovie } from "../services/movieService";
 import { getGenres } from "../services/genreService";
 import { paginate } from "../utils/paginate";
 import _ from "lodash";
-// import auth from "../services/authService";
 import SearchBox from "./searchBox";
 import { toast } from "react-toastify";
 
@@ -21,16 +20,7 @@ class Movies extends Component {
     selectedGenre: null,
     sortColumn: { path: "title", order: "asc" }
   };
-// columns =[];
-// addButton = () => {
-//   <Link
-//   to="/movies/new"
-//   className="btn btn-primary"
-//   style={{ marginBottom: 20 }}
-// >
-//   New Movie
-// </Link>
-// }
+
   async componentDidMount() {
     const { data } = await getGenres();
     const genres = [{ _id: "", name: "All Genres" }, ...data];
@@ -38,18 +28,7 @@ class Movies extends Component {
    const { data: movies } = await getMovies();
     this.setState({ movies , genres });
   }
-
-  // constructor() {
-  //   super();
-  //   const user = auth.getCurrentUser();
-  //   if (user && user.isAdmin) 
-  //     console.log('is an Admin');
-  //      this.columns.push(this.addButton);
-  //      console.log(this.columns);
-       
-  // }
   handleDelete = async movie => {
-
     const originalMovies = this.state.movies;
     const movies = this.state.movies.filter(m => m._id !== movie._id);
     this.setState({ movies });
@@ -131,16 +110,6 @@ const { totalCount, data: movies } = this.getPagedData();
              
         </div>
         <div className="col">
-          
-         {/* {user &&  <Link
-            to="/movies/new"
-            className="btn btn-primary"
-            style={{ marginBottom: 20 }}
-          >
-            New Movie
-          </Link>
-
-          } */}
           {user && user.isAdmin ? <Link
             to="/movies/new"
             className="btn btn-primary"
