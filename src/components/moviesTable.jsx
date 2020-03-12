@@ -5,11 +5,23 @@ import Like from "./common/like";
 import auth from "../services/authService";
 
 class MoviesTable extends Component {
+  linkColumn = {
+    key:"link",
+    path: "title",
+    label: "Edit Movie",
+    content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+  }
+  // linkButton = {
+  //   key:"button",
+  //   path: "title",
+  //   label: "Title",
+  //   content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+  // }
   columns = [
     {
       path: "title",
       label: "Title",
-      content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+     content: movie => <Link to={`/movies`}>{movie.title}</Link>
     },
     { path: "genre.name", label: "Genre" },
     { path: "numberInStock", label: "Stock" },
@@ -36,9 +48,12 @@ deleteColumn = {
   constructor() {
     super();
     const user = auth.getCurrentUser();
-    if (user && user.isAdmin) 
+    if (user && user.isAdmin){
+      this.columns.push(this.linkColumn);
       this.columns.push(this.deleteColumn);
-    
+    }else{
+     // this.columns.push(this.linkButton);
+    }
   }
   render() {
     const { movies, onSort, sortColumn } = this.props;
