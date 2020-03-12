@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchBox from "./searchBox";
 import _ from "lodash";
+import RentalsTable from "./rentalsTable";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
 import { getRentals } from "../services/rentalService";
@@ -10,7 +11,7 @@ class Rentals extends Component {
     searchQuery: "",
     currentPage: 1,
     pageSize: 3,
-    sortColumn: { order: "asc" }
+    sortColumn: { path: "dateOut",order: "asc" }
   };
 
   async componentDidMount() {
@@ -23,6 +24,11 @@ class Rentals extends Component {
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
+
+  handleSort = sortColumn => {
+    this.setState({ sortColumn });
+  };
+  
   getPagedData = () => {
     const {
       searchQuery,
@@ -37,7 +43,7 @@ class Rentals extends Component {
       filtered = allRentals.filter(r =>
         r.customer.name.toLowerCase().startsWith(searchQuery.toLowerCase())
       );
-    const sorted = _.orderBy(filtered, [sortColumn.order]);
+    const sorted = _.orderBy(filtered, [sortColumn.path],[sortColumn.order]);
     const rents = paginate(sorted, currentPage, pageSize);
     console.log(rents);
     return { totalCount: filtered.length, data: rents };
@@ -52,7 +58,7 @@ class Rentals extends Component {
     }
   }
   render() {
-    const { searchQuery, pageSize, currentPage } = this.state;
+    const { searchQuery, pageSize, currentPage,sortColumn} = this.state;
     const { totalCount, data: rents } = this.getPagedData();
     return (
       <React.Fragment>
@@ -63,7 +69,7 @@ class Rentals extends Component {
           surcharge of Ksh50 as a service fee
         </p>
         <SearchBox value={searchQuery} onChange={this.handleSearch} />
-        {rents.map(rental => (
+        {/* {rents.map(rental => (
           <div className="list-group" key={rental._id}>
             <button className="list-group-item list-group-item-action">
               <div className="d-flex w-100 justify-content-between">
@@ -87,7 +93,14 @@ class Rentals extends Component {
               </div>
             </button>
           </div>
-        ))}
+        ))} */}
+         <RentalsTable
+            rents={rents}
+            sortColumn={sortColumn}
+            onLike={this.handleLike}
+            onDelete={this.handleDelete}
+            onSort={this.handleSort}
+          />
         <Pagination
           itemsCount={totalCount}
           pageSize={pageSize}
