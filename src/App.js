@@ -9,6 +9,7 @@ import NotFound from "./components/notFound";
 import NavBar from "./components/navBar";
 import LoginForm from "./components/loginForm";
 import Logout from "./components/logout";
+import MustSee from "./components/mustsee"
 import Me from "./components/me";
 import RegisterForm from "./components/registerForm";
 import ProtectedRoute from "./components/common/protectedRoute";
@@ -21,11 +22,15 @@ class App extends Component {
   componentDidMount() {
    const user = auth.getCurrentUser();
    this.setState({ user});
+   
+  toast("API mounted successfully");
+   if (auth.getCurrentUser()){
+      toast.success("Succesfull Login")
+    }
   }
   render() {
-  
+   
 
-    toast("API mounted successfully");
     return (
       <React.Fragment>
         <ToastContainer />
@@ -35,6 +40,7 @@ class App extends Component {
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
+            <Route path = "/mustsee" component={MustSee}/>
             <ProtectedRoute path="/movies/:id" component = {MovieForm} />
             <Route path="/movies" render={props => <Movies {...props} user={this.state.user} />}  />
             <ProtectedRoute path="/customers" component={Customers} />
