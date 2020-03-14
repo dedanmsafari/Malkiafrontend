@@ -19,7 +19,7 @@ class Customers extends Component {
           <h5 className="mb-1">{c.name}</h5>
         </div>
         <p className="mb-1">Phone No:{c.phone}</p>
-        <small>Status:{c.isGold}</small>
+        {/* <small>Status:{c.isGold}</small> */}
       </button>
     ));
   }
