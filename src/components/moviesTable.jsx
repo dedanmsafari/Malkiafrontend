@@ -11,12 +11,7 @@ class MoviesTable extends Component {
     label: "Edit Movie",
     content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
   }
-  // linkButton = {
-  //   key:"button",
-  //   path: "title",
-  //   label: "Title",
-  //   content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
-  // }
+
   columns = [
     {
       path: "title",
@@ -51,8 +46,6 @@ deleteColumn = {
     if (user && user.isAdmin){
       this.columns.push(this.linkColumn);
       this.columns.push(this.deleteColumn);
-    }else{
-     // this.columns.push(this.linkButton);
     }
   }
   render() {
