@@ -11,6 +11,7 @@ import LoginForm from "./components/loginForm";
 import Logout from "./components/logout";
 import MustSee from "./components/mustsee"
 import Me from "./components/me";
+import Soon from './components/soon';
 import RegisterForm from "./components/registerForm";
 import ProtectedRoute from "./components/common/protectedRoute";
 import  auth  from "./services/authService";
@@ -41,6 +42,7 @@ class App extends Component {
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
             <Route path = "/mustsee" component={MustSee}/>
+            <Route path = "/soon" component={Soon}/>
             <ProtectedRoute path="/movies/:id" component = {MovieForm} />
             <Route path="/movies" render={props => <Movies {...props} user={this.state.user} />}  />
             <ProtectedRoute path="/customers" component={Customers} />
