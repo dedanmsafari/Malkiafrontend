@@ -12,6 +12,7 @@ class MovieForm extends Form {
       numberInStock: "",
       dailyRentalRate: "",
       description: "",
+      profileImg: ""
     },
     genres: [],
     errors: {}
@@ -37,9 +38,10 @@ class MovieForm extends Form {
       .label("Daily Rental Rate"),
     description: Joi.string()
       .required()
-      .min(10)
+      .min(20)
       .max(100)
-      .label("Description")
+      .label("Description"),
+   profileImg: Joi.string().required().label(" Uploads")
   };
 
   async populateGenre() {
@@ -52,6 +54,7 @@ class MovieForm extends Form {
       if (movieId === "new") return;
       const { data: movie } = await getMovie(movieId);
       this.setState({ data: this.mapToViewModel(movie) });
+      console.log(movie);
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
         this.props.history.replace("/not-found");
@@ -69,7 +72,8 @@ class MovieForm extends Form {
       genreId: movie.genre._id,
       numberInStock: movie.numberInStock,
       dailyRentalRate: movie.dailyRentalRate,
-      description: movie.description
+      description: movie.description,
+      profileImg: movie.file
     };
   }
 
@@ -78,7 +82,10 @@ class MovieForm extends Form {
 
     this.props.history.push("/movies");
   };
+ 
   render() {
+    
+    
     return (
       <div>
         <h1>Movie Form</h1>
@@ -88,7 +95,9 @@ class MovieForm extends Form {
           {this.renderInput("numberInStock", "Number in Stock", "number")}
           {this.renderInput("dailyRentalRate", "Rate")}
           {this.renderText("description", "Description")}
+          {this.renderUpload("profileImg","Image Upload")}
           {this.renderButton("Save")}
+
         </form>
       </div>
     );
