@@ -54,6 +54,9 @@ const NavBar = ({user}) => {
           <NavLink className="nav-item nav-link" to="/Me">
            <h6> Welcome! {user.name}</h6>
           </NavLink>
+          {/* <NavLink className="nav-item nav-link" to="/soon">
+           Coming Soon
+         </NavLink> */}
           <NavLink className="nav-item nav-link" to="/logout">
             Logout
           </NavLink>
