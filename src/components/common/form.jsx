@@ -3,7 +3,7 @@ import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
 import Text from "./text";
-import Upload from "./upload";
+// import Upload from "./upload";
 class Form extends Component {
   state = {
     data: {},
@@ -29,8 +29,9 @@ class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();  
-    const formData = new FormData()
-    formData.append('profileImg',this.state.data.profileImg);
+    // const formData = new FormData()
+    // formData.append('profileImg',this.state.data.profileImg);
+   
     const errors = this.validate();
     this.setState({ errors: errors || {} });
     if (errors) return;
@@ -100,20 +101,20 @@ renderText( name, label){
       />
     );
   }
-  renderUpload( name, label, type ="file"){
-    const { data, errors } = this.state;
+  // renderUpload( name, label, type ="file"){
+  //   const { data, errors } = this.state;
   
-    return (
-     <Upload 
-     type= {type}
-     name={name}
-     value={data[name]}
-     label={label}
-     onChange={this.handleChange}
-     error={errors[name]}
-     />
-    );
-  }
+  //   return (
+  //    <Upload 
+  //    type= {type}
+  //    name={name}
+  //    value={data[name]}
+  //    label={label}
+  //    onChange={this.handleChange}
+  //    error={errors[name]}
+  //    />
+  //   );
+  // }
 }
 
 export default Form;
