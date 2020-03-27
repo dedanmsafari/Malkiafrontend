@@ -9,10 +9,13 @@ class MovieForm extends Form {
     data: {
       title: "",
       genreId: "",
+      starActor: "",
+      producer: "",
+      year: "",
       numberInStock: "",
       dailyRentalRate: "",
       description: "",
-      profileImg: ""
+      // profileImg: ""
     },
     genres: [],
     errors: {}
@@ -26,6 +29,19 @@ class MovieForm extends Form {
     genreId: Joi.string()
       .required()
       .label("Genre"),
+    starActor: Joi.string()
+      .max(10)
+      .required()
+      .label("starActor"),
+    producer: Joi.string()
+      .max(10)
+      .required()
+      .label("producer"),
+    year: Joi.number()
+      .min(1990)
+      .max(2020)
+      .required()
+      .label("Year"),
     numberInStock: Joi.number()
       .required()
       .min(0)
@@ -41,7 +57,7 @@ class MovieForm extends Form {
       .min(20)
       .max(100)
       .label("Description"),
-   profileImg: Joi.string().required().label(" Uploads")
+    // profileImg: Joi.required().label(" Uploads")
   };
 
   async populateGenre() {
@@ -54,7 +70,7 @@ class MovieForm extends Form {
       if (movieId === "new") return;
       const { data: movie } = await getMovie(movieId);
       this.setState({ data: this.mapToViewModel(movie) });
-      console.log(movie);
+     // console.log(movie);
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
         this.props.history.replace("/not-found");
@@ -70,34 +86,36 @@ class MovieForm extends Form {
       _id: movie._id,
       title: movie.title,
       genreId: movie.genre._id,
+      starActor: movie.starActor,
+      producer: movie.producer,
+      year: movie.year,
       numberInStock: movie.numberInStock,
       dailyRentalRate: movie.dailyRentalRate,
       description: movie.description,
-      profileImg: movie.file
+      // profileImg: movie.file.filename
     };
   }
 
   doSubmit = async () => {
     await saveMovie(this.state.data);
-
     this.props.history.push("/movies");
   };
- 
+
   render() {
-    
-    
     return (
       <div>
         <h1>Movie Form</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
           {this.renderSelect("genreId", "Genre", this.state.genres)}
+          {this.renderInput("starActor", "starActor")}
+          {this.renderInput("producer", "Producer")}
+          {this.renderInput("year", "Year of Release", "number")}
           {this.renderInput("numberInStock", "Number in Stock", "number")}
           {this.renderInput("dailyRentalRate", "Rate")}
           {this.renderText("description", "Description")}
-          {this.renderUpload("profileImg","Image Upload")}
+          {/* {this.renderUpload("profileImg", "Image Upload")} */}
           {this.renderButton("Save")}
-
         </form>
       </div>
     );
