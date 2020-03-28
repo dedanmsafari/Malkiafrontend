@@ -3,6 +3,7 @@ import SearchBox from "./searchBox";
 import _ from "lodash";
 import RentalsTable from "./rentalsTable";
 import Pagination from "./common/pagination";
+import { Link } from "react-router-dom";
 import { paginate } from "../utils/paginate";
 import { getRentals } from "../services/rentalService";
 class Rentals extends Component {
@@ -45,7 +46,6 @@ class Rentals extends Component {
       );
     const sorted = _.orderBy(filtered, [sortColumn.path],[sortColumn.order]);
     const rents = paginate(sorted, currentPage, pageSize);
-    console.log(rents);
     return { totalCount: filtered.length, data: rents };
   };
 
@@ -63,6 +63,13 @@ class Rentals extends Component {
     return (
       <React.Fragment>
         <p>Showing {totalCount} Rental Count(s)</p>
+        { <Link
+            to="/rentals/new"
+            className="btn btn-primary"
+            style={{ marginBottom: 20 }}
+          >
+            Place Rental
+          </Link> }
         <p>
           <strong>NB:</strong>Rental price is calculated as a product of the
           daily rental rate and the days it took to watch the movie plus a
