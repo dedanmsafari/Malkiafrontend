@@ -14,13 +14,14 @@ class Customers extends Component {
     const { customers } = this.state;
     return customers.map(c => (
       
-      <button className="list-group-item list-group-item-action" key={c._id}>
+      <a className="list-group-item list-group-item-action" key={c._id}>
         <div className="d-flex w-100 justify-content-between">
           <h5 className="mb-1">{c.name}</h5>
         </div>
         <p className="mb-1">Phone No:{c.phone}</p>
-        {/* <small>Status:{c.isGold}</small> */}
-      </button>
+        <p className="mb-1">Customer ID:   <strong>{c._id}</strong></p>
+  
+      </a>
     ));
   }
 }
