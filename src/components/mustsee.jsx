@@ -32,8 +32,11 @@ const popular = this.state.movies.filter( m => m.dailyRentalRate >= 5)
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{p.title}</h5>
                         </div>
-                        <p className="mb-1">numberinStock:{p.numberInStock}</p>
-                        <p>description:{p.description}</p>
+                        <p className="mb-1">Description:{p.description}</p>
+                        <p className="mb-1">Producer:{p.producer}</p>
+                        <p className="mb-1">Star Actor:{p.starActor}</p>
+                        <p className="mb-1"> Year Released:{p.year}</p>
+                        <p className="mb-1">Number In Stock:{p.numberInStock}</p>
                         <small>RentalRate:{p.dailyRentalRate}</small>
                       </button>
                 ))};
