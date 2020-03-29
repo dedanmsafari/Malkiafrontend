@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Movies from "./components/movies";
 import MovieForm from "./components/movieForm";
 import RentalForm from "./components/rentalForm";
+import CustomerForm from "./components/customersForm";
 import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NotFound from "./components/notFound";
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path = "/mustsee" component={MustSee}/>
             <Route path = "/soon" component={Soon}/>
             <ProtectedRoute path="/movies/:id" component = {MovieForm} />
+            <ProtectedRoute path="/customers/:id" component = {CustomerForm} />
             <ProtectedRoute path="/rentals/:id" component = {RentalForm} />
             <ProtectedRoute path="/customers" component={Customers} />
             <ProtectedRoute path="/rentals" component={Rentals} />
