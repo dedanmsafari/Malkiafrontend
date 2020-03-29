@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { getCustomers } from "../services/customerService";
 class Customers extends Component {
   state = {
@@ -12,17 +13,27 @@ class Customers extends Component {
   }
   render() {
     const { customers } = this.state;
-    return customers.map(c => (
-      
-      <a className="list-group-item list-group-item-action" key={c._id}>
+    return (
+      <React.Fragment>
+         { <Link
+            to="/customers/new"
+            className="btn btn-primary"
+            style={{ marginBottom: 20 }}
+          >
+            Add Customer
+          </Link> }
+    {customers.map(c => (
+      <Link to={`/customers/${c._id}`} className="list-group-item list-group-item-action" key={c._id}>
         <div className="d-flex w-100 justify-content-between">
           <h5 className="mb-1">{c.name}</h5>
         </div>
         <p className="mb-1">Phone No:{c.phone}</p>
         <p className="mb-1">Customer ID:   <strong>{c._id}</strong></p>
   
-      </a>
-    ));
+      </Link>
+    ))}
+    </React.Fragment>
+    );
   }
 }
 
