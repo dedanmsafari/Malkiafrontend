@@ -73,7 +73,7 @@ class Rentals extends Component {
         <p>
           <strong>NB:</strong>Rental price is calculated as a product of the
           daily rental rate and the days it took to watch the movie plus a
-          surcharge of Ksh50 as a service fee
+          surcharge of Ksh150 as a service fee
         </p>
         <SearchBox value={searchQuery} onChange={this.handleSearch} />
         {/* {rents.map(rental => (
