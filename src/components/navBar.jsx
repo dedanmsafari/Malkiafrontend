@@ -24,9 +24,7 @@ const NavBar = ({user}) => {
           <NavLink className="nav-item nav-link" to="/movies">
             Movies
           </NavLink>
-          <NavLink className="nav-item nav-link" to="/mustsee">
-            Must see!
-          </NavLink>
+        
          { user && user.isAdmin ?
          <React.Fragment>
          <NavLink className="nav-item nav-link" to="/customers">
@@ -51,6 +49,9 @@ const NavBar = ({user}) => {
           }
           {user &&
           <React.Fragment>
+              <NavLink className="nav-item nav-link" to="/mustsee">
+            Must see!
+          </NavLink>
           <NavLink className="nav-item nav-link" to="/Me">
            <h6> Welcome! {user.name}</h6>
           </NavLink>
