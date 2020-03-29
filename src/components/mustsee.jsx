@@ -28,7 +28,7 @@ const popular = this.state.movies.filter( m => m.dailyRentalRate >= 5)
                     <h5>Our System detect that the following are the most watched shows.
                      Visit your nearest rental shop and grab a copy</h5>
                    { popular.map(p => (
-                        <button className="list-group-item list-group-item-action" key={p._id}>
+                        <a className="list-group-item list-group-item-action" key={p._id}>
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{p.title}</h5>
                         </div>
@@ -38,7 +38,7 @@ const popular = this.state.movies.filter( m => m.dailyRentalRate >= 5)
                         <p className="mb-1"> Year Released:{p.year}</p>
                         <p className="mb-1">Number In Stock:{p.numberInStock}</p>
                         <small>RentalRate:{p.dailyRentalRate}</small>
-                      </button>
+                      </a>
                 ))};
 
                 </React.Fragment>
