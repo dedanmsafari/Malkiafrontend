@@ -11,7 +11,7 @@ class Rentals extends Component {
     rentals: [],
     searchQuery: "",
     currentPage: 1,
-    pageSize: 3,
+    pageSize: 5,
     sortColumn: { path: "dateOut",order: "asc" }
   };
 
