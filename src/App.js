@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Movies from "./components/movies";
+import Maps from "./components/maps";
 import MovieForm from "./components/movieForm";
 import RentalForm from "./components/rentalForm";
 import CustomerForm from "./components/customersForm";
@@ -18,7 +19,9 @@ import RegisterForm from "./components/registerForm";
 import ProtectedRoute from "./components/common/protectedRoute";
 import  auth  from "./services/authService";
 import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
+import "font-awesome/css/font-awesome.css";
+import "./Styling/css/main.css";
+ import 'antd/dist/antd.css';
 
 class App extends Component {
   state = {};
@@ -38,13 +41,14 @@ class App extends Component {
       <React.Fragment>
         <ToastContainer />
         <NavBar user={this.state.user} />
-        <main className="container">
+        <main className="container-fluid">
           <Switch>
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
             <Route path = "/mustsee" component={MustSee}/>
             <Route path = "/soon" component={Soon}/>
+            <Route path = "/maps" component={Maps}/>
             <ProtectedRoute path="/movies/:id" component = {MovieForm} />
             <ProtectedRoute path="/customers/:id" component = {CustomerForm} />
             <ProtectedRoute path="/rentals/:id" component = {RentalForm} />
