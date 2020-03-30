@@ -7,7 +7,7 @@ $border-radius: 1.5em;
 
 $link-color:                theme-colors("primary");
 $link-decoration:           none ;
-$link-hover-color:          darken(hotpink, 20%);
+$link-hover-color:          darken(rgba(0, 255, 42, 0.993), 20%);
 $link-hover-decoration:     underline;
 
 
@@ -19,30 +19,98 @@ $container-max-widths: (
   xl: 1140px
 ) !default;
 
-
-.navbar-nav {
+.h-lg {
+  height: 35rem;
+}
+.main-nav {
+  background-color: rgb(34, 33, 33);
+  //background-color:transparent;
+	left: 0;
+	position: absolute;
+  top: 0;
+  z-index: 10000;
   display: flex;
   flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
  
-  
-  .nav-link {
-    padding-right: 3px;
-    padding-left: 2px;
-    width:15rem;
-    text-align: center;
-    background-color: #b9adad;
-  
+  .brandname{
+    color: #ffffff;
+    background-color: #202222;
+   // background-color:transparent;
+    :hover{
+      transition: color 0.5s ease-in-out;
+      color:green;
+    }
   }
+  
+}
+.nav-link {
+  background-color: #202222;
+  //background-color:transparent;
+  color: #ffffff;
+  border-radius: 4px;
+  text-align: center;
+  display: inline-block;
+  margin-left: 5.5em;
+ transition: color 0.5s ease-in-out;
+  padding-left: 0;
+  position: relative;
+:hover{
+color:green;
+}
 
-  .dropdown-menu {
-    position: static;
-    float: none;
+.move-right{
+  right:0;
+  }
+.move-left{
+  left:0;
   }
 }
 
+.banner-main{
+ //background: url("../../images/banner.jpg");
+ //clip-path:polygon(0 0, 43% 0, 100% 100%, 0% 100%);
+ background-color: #cac8c8;
+	//	background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #332121;
+		padding:3em;
+		text-align: center;
+}
+// .container-fluid{
+//   position: ;
+// }
+//   .dropdown-menu {
+//     position: static;
+//     float: none;
+//   }
+// }
+.image-wrapper-sm {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 15rem;
+  width: 100%;
+}
 
+.card-title {
+  color: #ee8301;
+}
+
+/* ANTD Overwrites */
+.ant-btn-primary {
+  background-color: #ee8301 !important;
+  border-color: #ee8301 !important;
+}
+
+.ant-slider-handle {
+  border-color: #ee8301 !important;
+}
+
+.ant-slider-track {
+  background-color: #282c34 !important;
+}
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
