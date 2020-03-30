@@ -11,28 +11,26 @@ class Me extends Component {
     
     </div>
     <div className="list-group">
-  <button  className="list-group-item list-group-item-action disabled">
+  <a  className="list-group-item list-group-item-action disabled">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Email</h5>
-      {/* <small>3 days</small> */}
+     
     </div>
     <p className="mb-1">{user && user.email}</p>
     
-  </button>
-  <button  className="list-group-item list-group-item-action disabled">
+  </a>
+  <a  className="list-group-item list-group-item-action disabled">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Name</h5>
-      {/* <small className="text-muted">3 days ago</small> */}
     </div>
     <p className="mb-1">{user && user.name}</p>
-  </button>
-  <button  className="list-group-item list-group-item-action disabled">
+  </a>
+  <a  className="list-group-item list-group-item-action disabled">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Status</h5>
-      {/* <small className="text-muted">3 days ago</small> */}
     </div>
     <p className="mb-1">Sorry! Not yet a premium customer. Continue Renting and we will upgrade you to be a premium member</p>
-  </button>
+  </a>
 </div>
     </React.Fragment>)
   }

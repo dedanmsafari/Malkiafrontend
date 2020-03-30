@@ -76,31 +76,6 @@ class Rentals extends Component {
           surcharge of Ksh150 as a service fee
         </p>
         <SearchBox value={searchQuery} onChange={this.handleSearch} />
-        {/* {rents.map(rental => (
-          <div className="list-group" key={rental._id}>
-            <button className="list-group-item list-group-item-action">
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">{rental.customer.name}</h5>
-                <small>
-                  {" "}
-                  <strong>Date Rented:</strong> {rental.dateOut}
-                </small>
-              </div>
-              <p className="mb-1">Phone No: {rental.customer.phone}</p>
-              <p className="mb-1">Movie title:{rental.movie.title}</p>
-              <p className="mb-1">
-                dailyRentalRate:{rental.movie.dailyRentalRate}
-              </p>
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">Rental fee:{this.handlefee(rental)}</h5>
-                <small>
-                  {" "}
-                  <strong>Date Returned:</strong> {rental.dateReturned}
-                </small>
-              </div>
-            </button>
-          </div>
-        ))} */}
          <RentalsTable
             rents={rents}
             sortColumn={sortColumn}
