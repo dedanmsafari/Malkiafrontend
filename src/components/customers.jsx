@@ -15,6 +15,7 @@ class Customers extends Component {
     const { customers } = this.state;
     return (
       <React.Fragment>
+           <section className="banner-main">
          { <Link
             to="/customers/new"
             className="btn btn-primary"
@@ -32,6 +33,7 @@ class Customers extends Component {
   
       </Link>
     ))}
+    </section>
     </React.Fragment>
     );
   }

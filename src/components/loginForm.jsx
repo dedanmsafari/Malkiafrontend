@@ -36,6 +36,8 @@ class LoginForm extends Form {
   render() {
     if (auth.getCurrentUser()) return <Redirect to="/" />;
     return (
+      
+      <section className="banner-main">
       <div>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
@@ -44,6 +46,7 @@ class LoginForm extends Form {
           {this.renderButton("Login")}
         </form>
       </div>
+      </section>
     );
   }
 }
