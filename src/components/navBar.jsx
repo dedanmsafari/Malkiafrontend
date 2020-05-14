@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = ({user}) => {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <Link className="navbar-brand" to="/">
+    <nav className="navbar navbar-expand-lg main-nav">
+      <Link className="navbar-brand brandname" to="/">
       <h5>  MalKia Rentals 
        <p> <small>  Kenya`s No.1</small></p>   </h5> 
       </Link>
@@ -19,9 +19,9 @@ const NavBar = ({user}) => {
       >
         <span className="navbar-toggler-icon" />
       </button>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <NavLink className="nav-item nav-link" to="/movies">
+          <NavLink className="nav-item nav-link move-left" to="/movies">
             Movies
           </NavLink>
         
@@ -38,10 +38,10 @@ const NavBar = ({user}) => {
           {!user &&
           <React.Fragment>
            
-          <NavLink className="nav-item nav-link" to="/login">
+          <NavLink className="nav-item nav-link move-right" to="/login">
             Login
           </NavLink>
-          <NavLink className="nav-item nav-link" to="/register">
+          <NavLink className="nav-item nav-link move-right" to="/register">
             Register
           </NavLink>
           
@@ -51,6 +51,9 @@ const NavBar = ({user}) => {
           <React.Fragment>
               <NavLink className="nav-item nav-link" to="/mustsee">
             Must see!
+          </NavLink>
+              <NavLink className="nav-item nav-link" to="/maps">
+            Rental Location
           </NavLink>
           <NavLink className="nav-item nav-link" to="/Me">
            <h6> Welcome! {user.name}</h6>
