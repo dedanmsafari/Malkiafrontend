@@ -9,6 +9,7 @@ import { paginate } from "../utils/paginate";
 import _ from "lodash";
 import SearchBox from "./searchBox";
 import { toast } from "react-toastify";
+import { Typography } from "@material-ui/core";
 
 class Movies extends Component {
   state = {
@@ -97,7 +98,7 @@ class Movies extends Component {
     const { length: count } = this.state.movies;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
  const {user} = this.props;
-    if (count === 0) return <p>There are no movies in the database.</p>;
+    if (count === 0) return  <Typography variant='h4' color='textSecondary' display = 'block'>There are no movies in the database.</Typography>;
 const { totalCount, data: movies } = this.getPagedData();
     return (
       <React.Fragment>
@@ -120,7 +121,7 @@ const { totalCount, data: movies } = this.getPagedData();
           >
             New Movie
           </Link> : null }
-          <p>Showing {totalCount} available movies.</p>
+          <Typography variant='h4' color='textSecondary' display = 'block'>Currently {totalCount} available movies.</Typography>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
             movies={movies}
