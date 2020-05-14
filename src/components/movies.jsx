@@ -100,6 +100,9 @@ class Movies extends Component {
     if (count === 0) return <p>There are no movies in the database.</p>;
 const { totalCount, data: movies } = this.getPagedData();
     return (
+      <React.Fragment>
+      <section className="banner-main">
+    
       <div className="row">
         <div className="col-3">
           <ListGroup
@@ -134,6 +137,9 @@ const { totalCount, data: movies } = this.getPagedData();
           />
         </div>
       </div>
+      </section>
+      </React.Fragment>
+
     );
   }
 }

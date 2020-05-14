@@ -42,6 +42,7 @@ class RegisterForm extends Form {
 
   render() {
     return (
+      <section className="banner-main">
       <div>
         <h1>Register</h1>
         <form onSubmit={this.handleSubmit}>
@@ -51,6 +52,7 @@ class RegisterForm extends Form {
           {this.renderButton("Register")}
         </form>
       </div>
+      </section>
     );
   }
 }

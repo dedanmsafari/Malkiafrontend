@@ -62,6 +62,7 @@ class Rentals extends Component {
     const { totalCount, data: rents } = this.getPagedData();
     return (
       <React.Fragment>
+         <section className="banner-main">
         <p>Showing {totalCount} Rental Count(s)</p>
         { <Link
             to="/rentals/new"
@@ -89,6 +90,7 @@ class Rentals extends Component {
           currentPage={currentPage}
           onPageChange={this.handlePageChange}
         />
+        </section>
       </React.Fragment>
     );
   }
