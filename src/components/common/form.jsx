@@ -3,6 +3,7 @@ import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
 import Text from "./text";
+// import { Button} from "@material-ui/core"
 // import Upload from "./upload";
 class Form extends Component {
   state = {
@@ -53,7 +54,7 @@ class Form extends Component {
 
   renderButton(label) {
     return (
-      <button disabled={this.validate()} className="btn btn-primary">
+      <button  style={{background:'transparent', color: 'green'}} disabled={this.validate()} className="btn btn-primary">
         {label}
       </button>
     );
