@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MoviesTable from "./moviesTable";
 import ListGroup from "./common/listGroup";
-import Pagination from "./common/pagination";
+import Paginational from "./common/pagination";
 import { getMovies, deleteMovie } from "../services/movieService";
 import { getGenres } from "../services/genreService";
 import { paginate } from "../utils/paginate";
@@ -130,7 +130,7 @@ const { totalCount, data: movies } = this.getPagedData();
             onDelete={this.handleDelete}
             onSort={this.handleSort}
           />
-          <Pagination
+          <Paginational
             itemsCount={totalCount}
             pageSize={pageSize}
             currentPage={currentPage}

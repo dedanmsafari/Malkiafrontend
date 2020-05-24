@@ -14,9 +14,11 @@ class MoviesTable extends Component {
 
   columns = [
     {
+      key:"link",
       path: "title",
       label: "Title",
-     content: movie => <a>{movie.title}</a>
+     //content: movie => <a>{movie.title}</a>
+     content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
     },
     { path: "genre.name", label: "Genre" },
     { path: "numberInStock", label: "Stock" },
@@ -44,7 +46,7 @@ deleteColumn = {
     super();
     const user = auth.getCurrentUser();
     if (user && user.isAdmin){
-      this.columns.push(this.linkColumn);
+     // this.columns.push(this.linkColumn);
       this.columns.push(this.deleteColumn);
     }
   }
