@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Typography} from '@material-ui/core'
 const ListGroup = ({
   items,
   textProperty,
@@ -17,7 +17,7 @@ const ListGroup = ({
             item === selectedItem ? "list-group-item active" : "list-group-item"
           }
         >
-          {item[textProperty]}
+          <Typography  variant='h6' color='textPrimary' >{item[textProperty]}</Typography>
         </li>
       ))}
     </ul>
