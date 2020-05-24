@@ -5,7 +5,7 @@ import MapMarker from '../components/mapsComponent/mapMaker';
 import PlaceCard from '../components/mapsComponent/PlaceCard';
 import ConstraintSlider from '../components/mapsComponent/constraintSlider';
 import { Button, Input, Divider, message } from 'antd';
-//import 'antd/dist/antd.css';
+import 'antd/dist/antd.css';
 
 const SG_COOR = { lat: 0.0236, lng: 37.9062 };
 
