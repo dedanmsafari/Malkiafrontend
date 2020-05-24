@@ -1,7 +1,7 @@
 import http from './httpService';
 import {
     apiEndpoint
-} from '../config';
+} from '../config.json';
 
 function movieUrl(movieId) {
     return (`${apiEndpoint}/movies/${movieId}`)

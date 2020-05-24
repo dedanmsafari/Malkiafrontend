@@ -1,11 +1,11 @@
-import * as Sentry from '@sentry/browser';
+// import * as Sentry from '@sentry/browser';
 
 
-function init() {
+// function init() {
 
-    Sentry.init({dsn: "https://1b37d9a991124d07b6cefd33239ee5a6@sentry.io/2668753"});
+//     Sentry.init({dsn: "https://1b37d9a991124d07b6cefd33239ee5a6@sentry.io/2668753"});
 
-}
+// }
 
 function log(error){
 
@@ -13,7 +13,7 @@ function log(error){
 }
 
 export default {
-init,
+// init,
 log
 
 }
