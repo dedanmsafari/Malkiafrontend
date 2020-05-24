@@ -4,6 +4,7 @@ class Me extends Component {
     const { user } = this.props;
 
     return (<React.Fragment>
+       <section className="banner-main">
         <div>
 
   { user &&  <p>Heyy <strong>{user.name}!</strong></p>} 
@@ -32,6 +33,7 @@ class Me extends Component {
     <p className="mb-1">Sorry! Not yet a premium customer. Continue Renting and we will upgrade you to be a premium member</p>
   </a>
 </div>
+</section>
     </React.Fragment>)
   }
 }

@@ -5,7 +5,7 @@ import MapMarker from '../components/mapsComponent/mapMaker';
 import PlaceCard from '../components/mapsComponent/PlaceCard';
 import ConstraintSlider from '../components/mapsComponent/constraintSlider';
 import { Button, Input, Divider, message } from 'antd';
-import 'antd/dist/antd.css';
+//import 'antd/dist/antd.css';
 
 const SG_COOR = { lat: 0.0236, lng: 37.9062 };
 
@@ -157,6 +157,7 @@ class Maps extends Component {
     const { constraints, mapsLoaded, singaporeLatLng, markers, searchResults } = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
+      <section className="banner-main">
       <div className="w-100 d-flex py-4 flex-wrap justify-content-center">
         <h1 className="w-100 fw-md">Find Rentals in Kenya!</h1>
         {/* Constraints section */}
@@ -234,6 +235,7 @@ class Maps extends Component {
           </div>
           : null}
       </div>
+      </section>
     )
   }
 }
