@@ -1,5 +1,6 @@
 import React from 'react';
-import { Icon, Slider } from 'antd';
+import { Slider } from 'antd';
+import Icon from '@ant-design/icons/lib/components/Icon';
 
 const ConstraintSlider = (({ iconType, value, onChange, text }) => {
   return (

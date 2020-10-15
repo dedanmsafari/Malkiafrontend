@@ -10,7 +10,7 @@ import _ from "lodash";
 import SearchBox from "./searchBox";
 import { toast } from "react-toastify";
 import { Typography } from "@material-ui/core";
-
+import Footer from "./footer";
 class Movies extends Component {
   state = {
     movies: [],
@@ -122,7 +122,7 @@ const { totalCount, data: movies } = this.getPagedData();
             New Movie
           </Link> : null }
           <Typography variant='h4' color='textSecondary' display = 'block'>Currently {totalCount} available movies.</Typography>
-          <SearchBox value={searchQuery} onChange={this.handleSearch} />
+          <SearchBox value={searchQuery}  onChange={this.handleSearch} />
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
@@ -138,6 +138,8 @@ const { totalCount, data: movies } = this.getPagedData();
           />
         </div>
       </div>
+      <br/>
+      <Footer/>
       </section>
       </React.Fragment>
 

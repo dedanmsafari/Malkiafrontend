@@ -9,7 +9,7 @@ class MoviesTable extends Component {
     key:"link",
     path: "title",
     label: "Edit Movie",
-    content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+    content: movie => <Link className="badge badge-info" to={`/movies/${movie._id}`}>{movie.title}</Link>
   }
 
   columns = [
@@ -17,10 +17,10 @@ class MoviesTable extends Component {
       key:"link",
       path: "title",
       label: "Title",
-     //content: movie => <a>{movie.title}</a>
-     content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+     content: movie => <strong className="badge badge-success" >{movie.title}</strong>
+    // content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
     },
-    { path: "genre.name", label: "Genre" },
+    { path: "genre.name", label: "Genre",content: movie => <i>{movie.genre.name}</i>},
     { path: "numberInStock", label: "Stock" },
     { path: "dailyRentalRate", label: "Rate" },
     {
@@ -42,11 +42,11 @@ deleteColumn = {
   )
 }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const user = auth.getCurrentUser();
     if (user && user.isAdmin){
-     // this.columns.push(this.linkColumn);
+      this.columns.push(this.linkColumn);
       this.columns.push(this.deleteColumn);
     }
   }

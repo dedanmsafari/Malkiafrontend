@@ -1,6 +1,6 @@
 import React from 'react';
-//import Icon from '@ant-design/icons/lib/components/Icon';
-import { Icon } from 'antd';
+import Icon from '@ant-design/icons/lib/components/Icon';
+//import { Icon } from 'antd';
 
 const MapMarker = (({ name, key }) => {
   return (

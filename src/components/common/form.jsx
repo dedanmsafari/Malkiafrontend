@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
-import Select from "./select";
+import SelectItem from "./select";
 import Text from "./text";
 // import { Button} from "@material-ui/core"
 // import Upload from "./upload";
@@ -77,7 +77,7 @@ renderText( name, label){
     const { data, errors } = this.state;
 
     return (
-      <Select
+      <SelectItem
         name={name}
         value={data[name]}
         label={label}

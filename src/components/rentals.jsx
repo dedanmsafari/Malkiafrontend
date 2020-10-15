@@ -18,6 +18,7 @@ class Rentals extends Component {
   async componentDidMount() {
     const { data: rentals } = await getRentals();
     this.setState({ rentals });
+    console.log(rentals);
   }
   handleSearch = query => {
     this.setState({ searchQuery: query, currentPage: 1 });
