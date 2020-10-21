@@ -16,12 +16,14 @@ import MustSee from "./components/mustsee"
 import Me from "./components/me";
 import Soon from './components/soon';
 import RegisterForm from "./components/registerForm";
+import Footer from './components/footer';
 import ProtectedRoute from "./components/common/protectedRoute";
 import  auth  from "./services/authService";
 import "react-toastify/dist/ReactToastify.css";
 import "font-awesome/css/font-awesome.css";
 import "./Styling/css/main.css";
  import 'antd/dist/antd.css';
+ //import "./App.css";
 
 class App extends Component {
   state = {};
@@ -61,7 +63,7 @@ class App extends Component {
             <Redirect to="/not-found" />
           </Switch>
         </main>
-      
+      <Footer/>
       </React.Fragment>
     );
   }
