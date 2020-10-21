@@ -3,10 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = ({user}) => {
   return (
+   
     <nav className="navbar navbar-expand-lg main-nav">
       <Link className="navbar-brand brandname" to="/">
       <h5>  MalKia Rentals 
-       <p> <small>  Kenya`s No.1</small></p>   </h5> 
+       <p> <small>  Kenya`s No.1</small></p></h5> 
       </Link>
       <button
         className="navbar-toggler"
@@ -21,10 +22,13 @@ const NavBar = ({user}) => {
       </button>
       <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <NavLink className="nav-item nav-link move-left" to="/movies">
-            Movies
+
+     
+          <NavLink className="nav-item nav-link" to="/movies">
+          Shows
           </NavLink>
-        
+      
+
          { user && user.isAdmin ?
          <React.Fragment>
          <NavLink className="nav-item nav-link" to="/customers">
@@ -33,18 +37,21 @@ const NavBar = ({user}) => {
           <NavLink className="nav-item nav-link" to="/rentals">
             Rentals
           </NavLink>
+        
           </React.Fragment> : null
           }
           {!user &&
           <React.Fragment>
-           
-          <NavLink className="nav-item nav-link move-right" to="/login">
+             
+          
+          <NavLink className="nav-item nav-link mr-sm-2" to="/login">
             Login
           </NavLink>
-          <NavLink className="nav-item nav-link move-right" to="/register">
+          <NavLink className="nav-item nav-link mr-sm-2" to="/register">
             Register
           </NavLink>
-          
+        
+             
           </React.Fragment>
           }
           {user &&
@@ -69,6 +76,7 @@ const NavBar = ({user}) => {
         </div>
       </div>
     </nav>
+ 
   );
 };
 
