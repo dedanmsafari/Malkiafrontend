@@ -9,7 +9,7 @@ import CustomerForm from "./components/customersForm";
 import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NotFound from "./components/notFound";
-import NavBar from "./components/navBar";
+import NavBar from "./components/header/navBar1";
 import LoginForm from "./components/loginForm";
 import Logout from "./components/logout";
 import MustSee from "./components/mustsee"
@@ -23,7 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "font-awesome/css/font-awesome.css";
 import "./Styling/css/main.css";
  import 'antd/dist/antd.css';
- //import "./App.css";
+ import "./App.css";
 
 class App extends Component {
   state = {};
@@ -63,6 +63,7 @@ class App extends Component {
             <Redirect to="/not-found" />
           </Switch>
         </main>
+        <br/>
       <Footer/>
       </React.Fragment>
     );
