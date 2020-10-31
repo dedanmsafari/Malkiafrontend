@@ -25,8 +25,9 @@ class TableHeader extends Component {
   };
 
   render() {
+    const {tour} = this.props
     return (
-      <thead className="thead-dark">
+      <thead className={`thead-dark ${tour}`}>
         <tr>
           {this.props.columns.map(column => (
             <th

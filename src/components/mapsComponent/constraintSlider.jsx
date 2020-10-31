@@ -2,9 +2,9 @@ import React from 'react';
 import { Slider } from 'antd';
 import Icon from '@ant-design/icons/lib/components/Icon';
 
-const ConstraintSlider = (({ iconType, value, onChange, text }) => {
+const ConstraintSlider = (({ iconType, value, onChange, text,tour }) => {
   return (
-    < section className="d-flex flex-column" >
+    < section className={`d-flex flex-column ${tour}`} >
       <div className="d-flex w-100 align-items-center">
         <Icon className="font-1-5 mr-4" type={iconType} />
         <Slider className="w-100" value={value} min={0} max={60} onChange={onChange} />

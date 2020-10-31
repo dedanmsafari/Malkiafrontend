@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import withTooltip from "../common/withTooltip";
 
-const NavBar = ({user}) => {
+const NavBar = ({ user, showTooltip}) => {
   return (
    
     <nav className="navbar navbar-expand-lg main-nav">
@@ -26,6 +27,7 @@ const NavBar = ({user}) => {
      
           <NavLink className="nav-item nav-link" to="/movies">
           Shows
+          {showTooltip && <div>(View all the available shows) </div>}
           </NavLink>
       
 
@@ -33,9 +35,11 @@ const NavBar = ({user}) => {
          <React.Fragment>
          <NavLink className="nav-item nav-link" to="/customers">
             Customers
+            {showTooltip && <div> (list of Customers)</div>}
           </NavLink>
           <NavLink className="nav-item nav-link" to="/rentals">
             Rentals
+            {showTooltip && <div> (all available rentals) </div>}
           </NavLink>
         
           </React.Fragment> : null
@@ -46,9 +50,11 @@ const NavBar = ({user}) => {
           
           <NavLink className="nav-item nav-link mr-sm-2" to="/login">
             Login
+            {showTooltip && <div> (Enter Site) </div>}
           </NavLink>
           <NavLink className="nav-item nav-link mr-sm-2" to="/register">
             Register
+            {showTooltip && <div>(For first time users)</div>}
           </NavLink>
         
              
@@ -58,18 +64,18 @@ const NavBar = ({user}) => {
           <React.Fragment>
               <NavLink className="nav-item nav-link" to="/mustsee">
             Must see!
+            {showTooltip && <div> (most watched shows) </div>}
           </NavLink>
               <NavLink className="nav-item nav-link" to="/maps">
             Rental Location
+            {showTooltip && <div> (rental places around) </div>}
           </NavLink>
           <NavLink className="nav-item nav-link" to="/Me">
            <h6> Welcome! {user.name}</h6>
           </NavLink>
-          {/* <NavLink className="nav-item nav-link" to="/soon">
-           Coming Soon
-         </NavLink> */}
           <NavLink className="nav-item nav-link" to="/logout">
             Logout
+            {showTooltip && <div> (System Exit) </div>}
           </NavLink>
           </React.Fragment>
           }
@@ -80,4 +86,4 @@ const NavBar = ({user}) => {
   );
 };
 
-export default NavBar;
+export default withTooltip(NavBar);
