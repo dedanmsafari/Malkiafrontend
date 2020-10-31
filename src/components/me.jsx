@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import Tour from "./tourUsers";
 class Me extends Component {
   render() {
     const { user } = this.props;
 
     return (<React.Fragment>
-       <section className="banner-main">
+      <br/>
+      <Tour/>
+       <section className="banner-main tour-user">
         <div>
 
   { user &&  <p>Heyy <strong>{user.name}!</strong></p>} 
@@ -12,26 +15,26 @@ class Me extends Component {
     
     </div>
     <div className="list-group">
-  <a  className="list-group-item list-group-item-action disabled">
+  <button  className="list-group-item list-group-item-action disabled">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Email</h5>
      
     </div>
     <p className="mb-1">{user && user.email}</p>
     
-  </a>
-  <a  className="list-group-item list-group-item-action disabled">
+  </button>
+  <button  className="list-group-item list-group-item-action disabled">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Name</h5>
     </div>
     <p className="mb-1">{user && user.name}</p>
-  </a>
-  <a  className="list-group-item list-group-item-action disabled">
+  </button>
+  <button  className="list-group-item list-group-item-action disabled">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">Status</h5>
     </div>
-    <p className="mb-1">Sorry! Not yet a premium customer. Continue Renting and we will upgrade you to be a premium member</p>
-  </a>
+    <p className="mb-1">Sorry! Not yet a premium customer. Continue Renting and we will upgrade you to be button premium member</p>
+  </button>
 </div>
 </section>
     </React.Fragment>)

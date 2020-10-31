@@ -5,6 +5,7 @@ import MustseeTable from "./mustseeTable"
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
 import { getMovies } from "../services/movieService";
+import Tour from "./tourMustSee";
 class MustSee extends Component {
   state = {
     movies: [],
@@ -70,31 +71,25 @@ if (searchQuery)
     const {totalCount ,  data: popular } = this.getPagedData();
     console.log(totalCount);
     const { searchQuery, pageSize, currentPage,sortColumn} = this.state;
+    
     return (
       <React.Fragment>
-        <section className="banner-main">
+        <br/>
+        <Tour/>
+        <section className="banner-main tour-mustsee">
           <h5>
             Our System detect that the following are the most watched shows.
             Visit your nearest rental shop and grab a copy
           </h5>
-          <SearchBox value={searchQuery} onChange={this.handleSearch} />
-          {/* {popular.map(p => (
-            <a className="list-group-item list-group-item-action" key={p._id}>
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">{p.title}</h5>
-              </div>
-              <p className="mb-1">Description:{p.description}</p>
-              <p className="mb-1">Producer:{p.producer}</p>
-              <p className="mb-1">Star Actor:{p.starActor}</p>
-              <p className="mb-1"> Year Released:{p.year}</p>
-              <p className="mb-1">Number In Stock:{p.numberInStock}</p>
-              <small>RentalRate:{p.dailyRentalRate}</small>
-            </a>
-          ))} */}
+          <SearchBox value={searchQuery} tour='tour-mustseeSearch' onChange={this.handleSearch} />
           <MustseeTable
             popular={popular}
             sortColumn={sortColumn}
             onSort={this.handleSort}
+            tourProducer='tour-mustseeProducer'
+            tourYear='tour-mustseeYear'
+            tourActor='tour-mustseeStarActor'
+            tourDescription='tour-mustseeDescription'
           />
         <Pagination
           itemsCount={totalCount}

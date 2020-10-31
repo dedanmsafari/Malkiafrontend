@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import auth from "../services/authService";
+import Tour from "./tourLogin";
 class LoginForm extends Form {
   state = {
     data: { username: "", password: "" },
@@ -35,10 +36,14 @@ class LoginForm extends Form {
 
   render() {
     if (auth.getCurrentUser()) return <Redirect to="/" />;
+    
     return (
-      
-      <section className="banner-main">
+      <>
+      <br/>
+<Tour/>
+      <section className="banner-main tour-login">
       <div>
+        <h2><b>Welcome Back!</b></h2>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("username", "Username")}
@@ -47,6 +52,7 @@ class LoginForm extends Form {
         </form>
       </div>
       </section>
+      </>
     );
   }
 }

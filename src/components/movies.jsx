@@ -10,12 +10,14 @@ import _ from "lodash";
 import SearchBox from "./searchBox";
 import { toast } from "react-toastify";
 import { Typography } from "@material-ui/core";
+import Tour from '../components/tour';
 class Movies extends Component {
   state = {
     movies: [],
     genres: [],
     currentPage: 1,
     pageSize: 10,
+    likes:null,
     searchQuery: "",
     selectedGenre: null,
     sortColumn: { path: "title", order: "asc" }
@@ -101,10 +103,12 @@ class Movies extends Component {
 const { totalCount, data: movies } = this.getPagedData();
     return (
       <React.Fragment>
-      <section className="banner-main">
+      <section className="banner-main tour-intro">
     
       <div className="row">
         <div className="col-3">
+          <Tour/>
+          <br/>
           <ListGroup
             items={this.state.genres}
             selectedItem={this.state.selectedGenre}
@@ -115,19 +119,23 @@ const { totalCount, data: movies } = this.getPagedData();
         <div className="col">
           {user && user.isAdmin ? <Link
             to="/movies/new"
-            className="btn btn-primary"
+            className="btn btn-primary tour-newmoviebutton"
             style={{ marginBottom: 20 }}
           >
             New Movie
           </Link> : null }
           <Typography variant='h4' color='textSecondary' display = 'block'>Currently {totalCount} available shows.Check your nearest rental.</Typography>
-          <SearchBox value={searchQuery}  onChange={this.handleSearch} />
+          <SearchBox  value={searchQuery} tour='tour-searchshows' onChange={this.handleSearch} />
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
             onLike={this.handleLike}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
+            tour='tour-sortorder'
+            tourStock='tour-stock'
+            tourRate='tour-rate'
+            tourEdit='tour-editmovie'
           />
           <Paginational
             itemsCount={totalCount}

@@ -6,6 +6,7 @@ import PlaceCard from '../components/mapsComponent/PlaceCard';
 import ConstraintSlider from '../components/mapsComponent/constraintSlider';
 import { Button, Input, Divider, message } from 'antd';
 import 'antd/dist/antd.css';
+import Tour from './tourmaps';
 
 const SG_COOR = { lat: 0.0236, lng: 37.9062 };
 
@@ -156,8 +157,14 @@ class Maps extends Component {
   render() {
     const { constraints, mapsLoaded, singaporeLatLng, markers, searchResults } = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
+
     return (
-      <section className="banner-main">
+      <>
+      <br/>
+      <Tour/>
+      <section className="banner-main tour-rentallocation">
+        <br/>
+        
       <div className="w-100 d-flex py-4 flex-wrap justify-content-center">
         <h1 className="w-100 fw-md">Find Rentals in Kenya!</h1>
         {/* Constraints section */}
@@ -168,8 +175,8 @@ class Maps extends Component {
                 const { name, time } = constraint;
                 return (
                   <div key={key} className="mb-4">
-                    <div className="d-flex mb-2">
-                      <Input className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
+                    <div className="d-flex mb-2 tour-rentallocationsearch">
+                      <Input className="col-4 mr-2 " placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
                       <MapAutoComplete
                         autoCompleteService={autoCompleteService}
                         geoCoderService={geoCoderService}
@@ -179,6 +186,7 @@ class Maps extends Component {
                       />
                     </div>
                     <ConstraintSlider
+                    tour='tour-rentallocationsearchbar'
                       iconType="car"
                       value={time}
                       onChange={(value) => this.updateConstraintTime(key, value)}
@@ -216,7 +224,7 @@ class Maps extends Component {
         </section>
 
         {/* Search Button */}
-        <Button className="mt-4 fw-md" type="primary" size="large" onClick={this.handleSearch}>Search!</Button>
+        <Button className="mt-4 fw-md tour-rentallocationsearchbutton" type="primary" size="large" onClick={this.handleSearch}>Search!</Button>
 
         {/* Results section */}
         {searchResults.length > 0 ?
@@ -236,6 +244,7 @@ class Maps extends Component {
           : null}
       </div>
       </section>
+      </>
     )
   }
 }

@@ -38,7 +38,7 @@ class MovieForm extends Form {
       .required()
       .label("producer"),
     year: Joi.number()
-      .min(1990)
+      .min(1900)
       .max(2020)
       .required()
       .label("Year"),
@@ -103,6 +103,7 @@ class MovieForm extends Form {
 
   render() {
     return (
+      <section className="banner-main ">
       <div>
         <h1>Movie Form</h1>
         <form onSubmit={this.handleSubmit}>
@@ -118,6 +119,7 @@ class MovieForm extends Form {
           {this.renderButton("Save")}
         </form>
       </div>
+      </section>
     );
   }
 }
