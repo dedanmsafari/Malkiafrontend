@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Table from "./common/table";
+import RentalTable from "./rentalTable";
 // import auth from "../services/authService";
 //<p>Created at:&nbsp;{new Date(todo.createdAt).toLocaleDateString()}</p>
 class RentalsTable extends Component {
@@ -27,6 +27,7 @@ class RentalsTable extends Component {
     { path: "rentalFee", label: "RentalFee (Ksh)" },
   ];
 
+ 
   // deleteColumn = {
   //   key: "delete",
   //   content: rental => (
@@ -47,10 +48,12 @@ class RentalsTable extends Component {
 
   //   }
   render() {
+  
     const { rents, onSort, sortColumn } = this.props;
 
     return (
-      <Table
+
+      <RentalTable
         columns={this.columns}
         data={rents}
         sortColumn={sortColumn}

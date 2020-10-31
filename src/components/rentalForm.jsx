@@ -49,6 +49,7 @@ class RentalForm extends Form {
 
   render() {
     return (
+      <section className="banner-main ">
       <div>
         <h1>Rental Form</h1>
         <form onSubmit={this.handleSubmit}>
@@ -57,6 +58,7 @@ class RentalForm extends Form {
           {this.renderButton("Save")}
         </form>
       </div>
+      </section>
     );
   }
 }

@@ -6,19 +6,21 @@ import Pagination from "./common/pagination";
 import { Link } from "react-router-dom";
 import { paginate } from "../utils/paginate";
 import { getRentals } from "../services/rentalService";
+import generatePDF from "../services/reportGenerator";
+import Tour from "../components/tourRentals";
+
 class Rentals extends Component {
   state = {
     rentals: [],
     searchQuery: "",
     currentPage: 1,
-    pageSize: 5,
+    pageSize: 30,
     sortColumn: { path: "dateOut",order: "asc" }
   };
 
   async componentDidMount() {
     const { data: rentals } = await getRentals();
     this.setState({ rentals });
-    console.log(rentals);
   }
   handleSearch = query => {
     this.setState({ searchQuery: query, currentPage: 1 });
@@ -39,12 +41,11 @@ class Rentals extends Component {
       currentPage,
       rentals: allRentals
     } = this.state;
-
     let filtered = allRentals;
     if (searchQuery)
       filtered = allRentals.filter(r =>
         r.customer.name.toLowerCase().startsWith(searchQuery.toLowerCase())
-      );
+      );           
     const sorted = _.orderBy(filtered, [sortColumn.path],[sortColumn.order]);
     const rents = paginate(sorted, currentPage, pageSize);
     return { totalCount: filtered.length, data: rents };
@@ -59,15 +60,17 @@ class Rentals extends Component {
     }
   }
   render() {
-    const { searchQuery, pageSize, currentPage,sortColumn} = this.state;
+    const {searchQuery, pageSize, currentPage,sortColumn} = this.state;
     const { totalCount, data: rents } = this.getPagedData();
     return (
       <React.Fragment>
+        <br/>
+       <Tour/>
          <section className="banner-main">
         <p>Showing {totalCount} Rental Count(s)</p>
         { <Link
             to="/rentals/new"
-            className="btn btn-primary"
+            className="btn btn-primary tour-placeRental"
             style={{ marginBottom: 20 }}
           >
             Place Rental
@@ -77,7 +80,7 @@ class Rentals extends Component {
           daily rental rate and the days it took to watch the movie plus a
           surcharge of Ksh150 as a service fee
         </p>
-        <SearchBox value={searchQuery} onChange={this.handleSearch} />
+        <SearchBox value={searchQuery} tour='tour-rentalsearch' onChange={this.handleSearch} />
          <RentalsTable
             rents={rents}
             sortColumn={sortColumn}
@@ -91,7 +94,20 @@ class Rentals extends Component {
           currentPage={currentPage}
           onPageChange={this.handlePageChange}
         />
+         <div className="container mb-4 mt-4 p-3">
+              <div className="row">
+                  <button
+                    className="btn btn-primary tour-report"
+                    onClick={() => generatePDF(rents)}
+                  >
+                    Generate monthly report
+                  </button>
+              </div>
+            </div>
         </section>
+       
+           
+       
       </React.Fragment>
     );
   }
